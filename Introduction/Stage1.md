@@ -35,7 +35,7 @@ ________________________________
 >  DataRow contains Index and a row of data and some functions you need to implement. But just do as 'Kiss Principle' says, keep it simple utill you need more features.
 >  
 #### DataColumn
->  After finishing 'Index' of our DataFrame, we need to think about the way we are going to store our data in DataFrame. Arrays seem to be a fast and simple way, but it can't gurantee our dataframe's flexibility and scalability. How about using 'vector' to store data rows of our data? It seems to be a good idea whic is flexible and scalable as well as being a good implementation for row operation. So why we choose DataColumn as our way to store our data? Because it's fast when forming a subframe with some of the origin dataframe's columns, and the most important reason is that the author's just chosen it :).
+>  After finishing 'Index' of our DataFrame, we need to think about the way we are going to store our data in DataFrame. Arrays seem to be a fast and simple way, but it can't gurantee our dataframe's flexibility and scalability. How about using 'vector' to store rows of our data? It seems to be a good idea which is flexible and scalable as well as being a good implementation for row operation. So why we choose DataColumn as our way to store our data? Because it's fast when forming a subframe with some of the origin dataframe's columns, and the most important reason is that the author's just chosen it :).
 >
 #### DataFrame
 >  Now, it's time to implement the core class 'DataFrame'. With Index and DataColumn, we can easily build a simple DataFrame. However, it's inperfect utill some amazing functions are added to this class. So, just keep on improving your DataFrame by add more useful functions!

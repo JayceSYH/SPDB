@@ -71,13 +71,13 @@ ________________________________
 >  Sometimes we use integer as data value, sometimes string. How can we operate this types of data in the same way? We need a super class to unify them!  (See DataType.h)
 >  
 ##### FileStructs
- | name | size |
- | :---- | :---- |
- | Schema | 1024Byte |
- | Database Table Descriptor | MAX_TD_NUM * sizeof(TableDescriptor) |
- | PAGE1 | PAGE_SIZE(4kb) |
- | PAGE2 | PAGE_SIZE |
- | PAGE2 | PAGE_SIZE |
+| name | size |
+| :---- | :---- |
+| Schema | 1024Byte |
+| Database Table Descriptor | MAX_TD_NUM * sizeof(TableDescriptor) |
+| PAGE1 | PAGE_SIZE(4kb) |
+| PAGE2 | PAGE_SIZE |
+| PAGE2 | PAGE_SIZE |
  
 >  This is the file structure of database file, the first 1024 bytes is Schema, which describes the structure of this file. The following MAX_TD_NUM * sizeof(TableDescriptor) bytes of space is used to store TableDescriptor which describes a table's base information. For more details, see FileStructs.h
 >  

@@ -6,11 +6,11 @@ A learning by doing database project for C++ beginners.
 >　　|　　　|  
 >　　|　　　|--DataFrame.h　　　　
 >　　|　　　|  
->　　|　　　|--Mess.h
+>　　|　　　|--Mess.h  
 >　　|　　　|    
 >　　|　　　|--ConcurrentQueue.h  
 >　　|　　　|  
->　　|　　　|--Exception.h
+>　　|　　　|--Exception.h  
 >　　|  
 >　　|  
 >BaseLayer----|--DataType.h　　　　　
@@ -19,21 +19,21 @@ A learning by doing database project for C++ beginners.
 >　　|　　　　|  
 >　　|　　　　|--DBModel.h　　　　
 >　　|　　　　|  
->　　|　　　　|--FileStructs.h
+>　　|　　　　|--FileStructs.h  
 >　　|　　　　 
 >　　|　　　　
->MiddleLayer----|--SQLOperation.h
+>MiddleLayer----|--SQLOperation.h  
 >　　|　　　　　|  
->　　|　　　　　|--TableManager.h
+>　　|　　　　　|--TableManager.h  
 >　　|　　　　　|  
->　　|　　　　　|--TimerManager.h
+>　　|　　　　　|--TimerManager.h  
 >　　|　　　　
 >　　|　　　
->OuterLayer---|--CommandLine.h
+>OuterLayer---|--CommandLine.h  
 >　　　　　　|  
->　　　　　　|--Connection.h
+>　　　　　　|--Connection.h  
 >　　　　　　|  
->　　　　　　|--SQLParse.h
+>　　　　　　|--SQLParse.h    
 
 ####Tips
 To get started, please read docs under introduction folder.

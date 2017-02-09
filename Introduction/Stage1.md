@@ -11,7 +11,7 @@
 >　　|　　　|  
 >　　|　　　|--Bytes　　　　　　　　　---The implementation of Bytes stream. 
 >　　|  
->BaseLayer---|--DataType　　　　　　---The implementation of Database field types  
+>  BaseLayer---|--DataType　　　　　　---The implementation of Database field types  
 >　　　　　　|  
 >　　　　　　|--DBFileSystem　　　　---The implementation of DBFileSystem  
 >　　　　　　|  

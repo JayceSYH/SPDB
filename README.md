@@ -20,15 +20,15 @@ A learning by doing database project for C++ beginners.
 >　　|　　　　|--DBModel.h  
 >　　|　　　　|  
 >　　|　　　　|--FileStructs.h  
->　　|　　　　 
->　　|　　　　
+>　　|  
+>　　|  
 >MiddleLayer----|--SQLOperation.h  
 >　　|　　　　　|  
 >　　|　　　　　|--TableManager.h  
 >　　|　　　　　|  
 >　　|　　　　　|--TimerManager.h  
->　　|　　　　
->　　|　　　
+>　　|  
+>　　|  
 >OuterLayer---|--CommandLine.h  
 >　　　　　　|  
 >　　　　　　|--Connection.h  

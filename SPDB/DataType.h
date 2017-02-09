@@ -5,7 +5,7 @@
 
 
 /*
-	ÎªÁË±£Ö¤Êı¾İ¿â²Ù×÷µÄÒ»ÖÂĞÔ£¬Í¨¹ı¼Ì³ĞDBDataÀà·â×°»ù±¾Êı¾İ½á¹¹£¬ÊµÏÖ»ù±¾Êı¾İÀàĞÍµÄ±íÊ¾ºÍ×ª»¯
+	ä¸ºäº†ä¿è¯æ•°æ®åº“æ“ä½œçš„ä¸€è‡´æ€§ï¼Œé€šè¿‡ç»§æ‰¿DBDataç±»å°è£…åŸºæœ¬æ•°æ®ç»“æ„ï¼Œå®ç°åŸºæœ¬æ•°æ®ç±»å‹çš„è¡¨ç¤ºå’Œè½¬åŒ–
 */
 
 
@@ -14,7 +14,7 @@ public:
 	//Data Type
 	enum DBDataType { DB_INTEGER, DB_DOUBLE, DB_CHAR, DB_DATETIME /*, DB_DECIMAL*/ };
 
-	//´ÓBytesÀà´´½¨DBDataÀàĞÍ±äÁ¿
+	//ä»Bytesç±»åˆ›å»ºDBDataç±»å‹å˜é‡
 	static DBData* createFromBytes(Bytes, DBDataType);
 	static std::vector<DBData*> createFromBytesList(std::vector<Bytes>&, DBDataType);
 	
@@ -24,7 +24,7 @@ public:
 	//destructor
 	virtual ~DBData(){}
 
-	//½«DBData×ª»¯³ÉBytes
+	//å°†DBDataè½¬åŒ–æˆBytes
 	virtual Bytes toBytes()=0;
 	virtual DBDataType getType()=0;
 };
@@ -33,37 +33,37 @@ public:
 
 /*************************************************************************/
 /*
-	Íê³ÉÏÂÃæÊı¾İ¿âÊı¾İÀàĞÍµÄÊµÏÖ£º
-		1.ÊµÏÖ¸¸ÀàµÄĞéº¯Êı
-		2.Ìí¼Ó×ª»»³ÉC++»ù±¾ÀàĞÍint¡¢stringµÈÀàĞÍµÄº¯ÊıgetValue()£¨ÈÕÆÚ¿ÉÒÔ×Ô¼ºÊµÏÖÒ»¸öDateTimeÀà£¬Ò²¿ÉÒÔÓÃUnixÊ±¼ä´Á£©
-		3.Ìí¼ÓÆäËûĞèÒªµÄ±äÁ¿ºÍº¯Êı
+	å®Œæˆä¸‹é¢æ•°æ®åº“æ•°æ®ç±»å‹çš„å®ç°ï¼š
+		1.å®ç°çˆ¶ç±»çš„è™šå‡½æ•°
+		2.æ·»åŠ è½¬æ¢æˆC++åŸºæœ¬ç±»å‹intã€stringç­‰ç±»å‹çš„å‡½æ•°getValue()ï¼ˆæ—¥æœŸå¯ä»¥è‡ªå·±å®ç°ä¸€ä¸ªDateTimeç±»ï¼Œä¹Ÿå¯ä»¥ç”¨Unixæ—¶é—´æˆ³ï¼‰
+		3.æ·»åŠ å…¶ä»–éœ€è¦çš„å˜é‡å’Œå‡½æ•°
 */
 
 
 /*
-	¿¼ÂÇµ½ÊµÏÖ¸´ÔÓ¶ÈµÄÎÊÌâ£¬ÔİÊ±Ö»ÊµÏÖ¶¨³¤µÄÊı¾İÀàĞÍ
+	è€ƒè™‘åˆ°å®ç°å¤æ‚åº¦çš„é—®é¢˜ï¼Œæš‚æ—¶åªå®ç°å®šé•¿çš„æ•°æ®ç±»å‹
 */
 
 
-//ÕûĞÍ
+//æ•´å‹
 class DBInteger : public DBData {
 
 };
 
 
-//¸¡µãĞÍ
+//æµ®ç‚¹å‹
 class DBDouble : public DBData {
 
 };
 
 
-//¶¨³¤×Ö·û´®
+//å®šé•¿å­—ç¬¦ä¸²
 class DBChar : public DBData {
 
 };
 
 
-//ÈÕÆÚÀàĞÍ yyyy-mm-dd hh:MM:ss
+//æ—¥æœŸç±»å‹ yyyy-mm-dd hh:MM:ss
 class DBDateTime : public DBData {
 
 };
@@ -71,7 +71,7 @@ class DBDateTime : public DBData {
 
 /*********OPTIONAL*******/
 
-//¸ß¾«¶È¸¡µãĞÍ
+//é«˜ç²¾åº¦æµ®ç‚¹å‹
 class DBDecimal : public DBData {
 
 };

@@ -4,29 +4,29 @@
 #include <string>
 
 /*
-	ÊµÏÖÊý¾Ý¿âµÄÁ¬½Ó£¬²¢¶ÔÊý¾Ý¿âÁ¬½Ó½øÐÐ¹ÜÀí
+	å®žçŽ°æ•°æ®åº“çš„è¿žæŽ¥ï¼Œå¹¶å¯¹æ•°æ®åº“è¿žæŽ¥è¿›è¡Œç®¡ç†
 */
 
 /*
-	Êý¾Ý¿âÁ¬½Ó
+	æ•°æ®åº“è¿žæŽ¥
 */
 class Connection {
 public:
 	void sendSQL(std::string sql);
 
-	//TODO:Ìí¼ÓÆäËû³ÉÔ±
+	//TODO:æ·»åŠ å…¶ä»–æˆå‘˜
 };
 
 
 /*
-	Êý¾Ý¿âÁ¬½Ó¹ÜÀíÆ÷£¬¹ÜÀíµ½Êý¾Ý¿âµÄÁ¬½Ó
+	æ•°æ®åº“è¿žæŽ¥ç®¡ç†å™¨ï¼Œç®¡ç†åˆ°æ•°æ®åº“çš„è¿žæŽ¥
 */
 class ConnectionManager {
-	//Ïß³Ì°²È«¶ÓÁÐ£¬ÓÃÀ´´æ´¢ÒÑ½¨Á¢µÄÁ¬½Ó
+	//çº¿ç¨‹å®‰å…¨é˜Ÿåˆ—ï¼Œç”¨æ¥å­˜å‚¨å·²å»ºç«‹çš„è¿žæŽ¥
 	ConcurrentQueue<Connection> ccq;
 public:
-	//´´½¨Ò»¸öÊý¾Ý¿âÁ¬½Ó£¬¿ÉÒÔÌí¼Ó²ÎÊýÀ´¿ØÖÆÊý¾Ý¿âÁ¬½ÓµÄÊôÐÔ
+	//åˆ›å»ºä¸€ä¸ªæ•°æ®åº“è¿žæŽ¥ï¼Œå¯ä»¥æ·»åŠ å‚æ•°æ¥æŽ§åˆ¶æ•°æ®åº“è¿žæŽ¥çš„å±žæ€§
 	static Connection createConnection(/*Meta*/);
 
-	//TODO£ºÌí¼Ó³ÉÔ±º¯Êý¶ÔConnnection½øÐÐ¹ÜÀí
+	//TODOï¼šæ·»åŠ æˆå‘˜å‡½æ•°å¯¹Connnectionè¿›è¡Œç®¡ç†
 };

@@ -3,31 +3,31 @@
 #include <functional>
 
 /*
-	TimerManager¡¢TickerÊµÏÖÁËÊ±ÖÓ¶¨Ê±¹¦ÄÜ£¬ÄÜÔÚÒ»¶¨Ê±¼äºó´¥·¢»Øµ÷º¯Êıcallback£¨ref £ºhttps://www.zhihu.com/question/19801131£©
-	ÊµÏÖº¯ÊıµÄÑÓ³Ùµ÷ÓÃ£¬ÔÚÒÔÈÎÎñ¶ÓÁĞÄ£ĞÍÎª»ù´¡µÄÏµÍ³ÖĞÊÇ¾­³£»áÊ¹ÓÃµÄ¹¤¾ß
+	TimerManagerã€Tickerå®ç°äº†æ—¶é’Ÿå®šæ—¶åŠŸèƒ½ï¼Œèƒ½åœ¨ä¸€å®šæ—¶é—´åè§¦å‘å›è°ƒå‡½æ•°callbackï¼ˆref ï¼šhttps://www.zhihu.com/question/19801131ï¼‰
+	å®ç°å‡½æ•°çš„å»¶è¿Ÿè°ƒç”¨ï¼Œåœ¨ä»¥ä»»åŠ¡é˜Ÿåˆ—æ¨¡å‹ä¸ºåŸºç¡€çš„ç³»ç»Ÿä¸­æ˜¯ç»å¸¸ä¼šä½¿ç”¨çš„å·¥å…·
 */
 
 /*
-	Íê³ÉTimerManagerºÍTickerµÄÊµÏÖ£º
-		1.Íê³ÉTimerManagerµÄdelay¹¦ÄÜ£¬²¢Ìí¼ÓĞèÒªµÄÆäËû¹¦ÄÜ
-		2.Íê³ÉTickerµÄÊµÏÖ
+	å®ŒæˆTimerManagerå’ŒTickerçš„å®ç°ï¼š
+		1.å®ŒæˆTimerManagerçš„delayåŠŸèƒ½ï¼Œå¹¶æ·»åŠ éœ€è¦çš„å…¶ä»–åŠŸèƒ½
+		2.å®ŒæˆTickerçš„å®ç°
 */
 
 
 /*
-	ticker»áÃ¿¸öÒ»¶¨Ê±¼äµ÷ÓÃÒ»´Î»Øµ÷º¯Êı
+	tickerä¼šæ¯ä¸ªä¸€å®šæ—¶é—´è°ƒç”¨ä¸€æ¬¡å›è°ƒå‡½æ•°
 */
 class Ticker {
 public:
-	Ticker(std::function<void(void)> func);						//ÒÔÄ³¸ö»Øµ÷º¯Êı´´½¨Ticker
-	void setCallback(std::function<void(void)> func);		//ÉèÖÃ»Øµ÷º¯Êı
-	void start(time_t milisecond);										//Æô¶¯ticker
+	Ticker(std::function<void(void)> func);						//ä»¥æŸä¸ªå›è°ƒå‡½æ•°åˆ›å»ºTicker
+	void setCallback(std::function<void(void)> func);		//è®¾ç½®å›è°ƒå‡½æ•°
+	void start(time_t milisecond);										//å¯åŠ¨ticker
 };
 
 
 class TimerManager {
 public:
-	//ÑÓ³ÙmilisecondºÁÃëÖ®ºóµ÷ÓÃfuncº¯Êı
-	static void delay(std::function<void(void)> func, time_t milisecond);			//Í¨¹ılambda±í´ïÊ½ÊµÏÖ¸´ÔÓµÄ»Øµ÷º¯Êı
+	//å»¶è¿Ÿmilisecondæ¯«ç§’ä¹‹åè°ƒç”¨funcå‡½æ•°
+	static void delay(std::function<void(void)> func, time_t milisecond);			//é€šè¿‡lambdaè¡¨è¾¾å¼å®ç°å¤æ‚çš„å›è°ƒå‡½æ•°
 };
 

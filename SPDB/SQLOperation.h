@@ -7,36 +7,36 @@
 #include <vector>
 
 /*
-	ÊµÏÖÏÂÃæµÄ¸÷ÖÖSQL Operation
+	å®ç°ä¸‹é¢çš„å„ç§SQL Operation
 */
 
 
 /*
-	SQLOperationÊµÏÖÁËSelect¡¢Insert¡¢DeleteÕâĞ©Entry¼¶µÄ²Ù×÷
-	ÒÔ¼°Create¡¢Drop¡¢Alert¡¢JoinÕâĞ©±í¼¶µÄ²Ù×÷
+	SQLOperationå®ç°äº†Selectã€Insertã€Deleteè¿™äº›Entryçº§çš„æ“ä½œ
+	ä»¥åŠCreateã€Dropã€Alertã€Joinè¿™äº›è¡¨çº§çš„æ“ä½œ
 */
 enum JoinMode { LeftJoin, RightJoin, InnerJoin, OutterJoin };
 
 class SQLOperation {
 public:
-	//Entry ¼¶²Ù×÷
-	//Ñ¡³öÉ¸Ñ¡º¯ÊıÑ¡ÖĞµÄĞĞ²¢×é³ÉÒ»¸öĞÂµÄDataFrame,Ä¬ÈÏÉ¸Ñ¡ËùÓĞÁĞ£¨ÁĞÃûÁĞ±íÎª¿Õ£©
+	//Entry çº§æ“ä½œ
+	//é€‰å‡ºç­›é€‰å‡½æ•°é€‰ä¸­çš„è¡Œå¹¶ç»„æˆä¸€ä¸ªæ–°çš„DataFrame,é»˜è®¤ç­›é€‰æ‰€æœ‰åˆ—ï¼ˆåˆ—ååˆ—è¡¨ä¸ºç©ºï¼‰
 	DataFrame* Select(DataFrame&, std::function<bool(DataRow&)>, std::vector<std::string> cols = std::vector<std::string>());
-	//²åÈënewDataµ½originÖĞ×é³ÉÒ»¸öĞÂµÄDataFrame
+	//æ’å…¥newDataåˆ°originä¸­ç»„æˆä¸€ä¸ªæ–°çš„DataFrame
 	DataFrame& Insert(DataFrame& origin, DataFrame& newData);
 	DataFrame& Insert(DataFrame&, DataRow&);
-	//´ÓDataFrameÖĞÈ¥³ı±»É¸Ñ¡º¯ÊıÑ¡ÖĞµÄĞĞ×é³ÉÒ»¸öĞÂµÄDataFrame
+	//ä»DataFrameä¸­å»é™¤è¢«ç­›é€‰å‡½æ•°é€‰ä¸­çš„è¡Œç»„æˆä¸€ä¸ªæ–°çš„DataFrame
 	DataFrame& Delete(DataFrame&, std::function<bool(DataRow&)>);
 
-	//Table ¼¶²Ù×÷
-	//´ÓÒ»¸öDataFrame´´½¨Ò»¸öĞÂ±í
+	//Table çº§æ“ä½œ
+	//ä»ä¸€ä¸ªDataFrameåˆ›å»ºä¸€ä¸ªæ–°è¡¨
 	Table* Create(DataFrame&);
-	//´ÓÒ»¸öIndex´´½¨Ò»¸öĞÂµÄ¿Õ±í
+	//ä»ä¸€ä¸ªIndexåˆ›å»ºä¸€ä¸ªæ–°çš„ç©ºè¡¨
 	Table* Create(Index&);
-	//¶ªÆúÄ¿±ê±í,·µ»ØÖµÎªÊÇ·ñ³É¹¦
+	//ä¸¢å¼ƒç›®æ ‡è¡¨,è¿”å›å€¼ä¸ºæ˜¯å¦æˆåŠŸ
 	bool Drop(Table&);
-	//ÒÔIndexµÄĞÅÏ¢Îª×¼¶ÔTable½øĞĞĞŞ¸Ä
+	//ä»¥Indexçš„ä¿¡æ¯ä¸ºå‡†å¯¹Tableè¿›è¡Œä¿®æ”¹
 	Table& Alert(Table&, Index&);
-	//ÒÔonConditionÎª¹Ø¼ü×Ö¶ÔÁ½¸ö±í½øĞĞjoin²Ù×÷£¬Ä¬ÈÏÎªinnerjoin
+	//ä»¥onConditionä¸ºå…³é”®å­—å¯¹ä¸¤ä¸ªè¡¨è¿›è¡Œjoinæ“ä½œï¼Œé»˜è®¤ä¸ºinnerjoin
 	DataFrame* Join(Table&, Table&, std::vector<std::string> onCondition, JoinMode mode=InnerJoin);
 };

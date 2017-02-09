@@ -164,10 +164,10 @@
     <ClInclude Include="TimerManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="README.txt" />
+    <ClCompile Include="main_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main_test.cpp" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

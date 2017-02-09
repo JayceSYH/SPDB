@@ -1,11 +1,11 @@
 #pragma once
 
 /*
-	ÊµÏÖÏÂÃæµÄCommandLine£¬Ê¹µÃ¿ÉÒÔÔÚÃüÁîĞĞ½çÃæ½øĞĞÊäÈë
+	å®ç°ä¸‹é¢çš„CommandLineï¼Œä½¿å¾—å¯ä»¥åœ¨å‘½ä»¤è¡Œç•Œé¢è¿›è¡Œè¾“å…¥
 */
 
 class CommandLine {
-	//TODO£ºÌí¼Ó³ÉÔ±
+	//TODOï¼šæ·»åŠ æˆå‘˜
 public:
 	void mainLoop();
 };

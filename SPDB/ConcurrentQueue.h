@@ -1,12 +1,12 @@
 #pragma once
 
 /*
-	й╣ожобцФ╣доъЁл╟╡х╚╤сап
+	Е╝·Г▌╟Д╦▀И²╒Г └Г╨©Г╗▀Е╝┴Е┘╗И≤÷Е┬≈
 */
 
 /*
-	ConcurrentQueueй╣ожакоъЁл╟╡х╚╣д╤сапё╛м╗╧Щй╧сцmutex
-	╩РуъCASю╢й╣ожё╗мф╪ЖCASё╘
+	ConcurrentQueueЕ╝·Г▌╟Д╨├Г╨©Г╗▀Е╝┴Е┘╗Г └И≤÷Е┬≈О╪▄И─ Х©┤Д╫©Г■╗mutex
+	Ф┬√Х─┘CASФ²╔Е╝·Г▌╟О╪┬Ф▌╗Х█░CASО╪┴
 */
 template<typename T>
 class ConcurrentQueue {

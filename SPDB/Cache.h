@@ -5,53 +5,53 @@
 
 
 /*
-	TODO£º
-		1.ÊµÏÖCacheProperty£¬Íê³ÉËøµÄÏà¹ØÊµÏÖ
-		2.Íê³ÉCacheContentµÄÊµÏÖ£¬ÊµÏÖ¶Ô»º´æÄÚÈÝµÄ²Ù×÷
-		3.Íê³É¶ÔCacheµÄÊµÏÖ£¬ÊµÏÖ¶Ô»º´æÄÚÈÝµÄ´æÈ¡¡¢É¾¸Ä
-		4.ÉèÖÃCacheµÄËøµÄÄ£Ê½
+	TODOï¼š
+		1.å®žçŽ°CachePropertyï¼Œå®Œæˆé”çš„ç›¸å…³å®žçŽ°
+		2.å®ŒæˆCacheContentçš„å®žçŽ°ï¼Œå®žçŽ°å¯¹ç¼“å­˜å†…å®¹çš„æ“ä½œ
+		3.å®Œæˆå¯¹Cacheçš„å®žçŽ°ï¼Œå®žçŽ°å¯¹ç¼“å­˜å†…å®¹çš„å­˜å–ã€åˆ æ”¹
+		4.è®¾ç½®Cacheçš„é”çš„æ¨¡å¼
 */
 
 
 /*
-	CacheProperty³ÖÓÐÁËÃ¿¸öcachecontentµÄËø£¬²¢ÊµÏÖËøÏà¹ØµÄ·½·¨±£Ö¤Cache¶ÁÐ´µÄÏß³Ì°²È«ÐÔ
+	CachePropertyæŒæœ‰äº†æ¯ä¸ªcachecontentçš„é”ï¼Œå¹¶å®žçŽ°é”ç›¸å…³çš„æ–¹æ³•ä¿è¯Cacheè¯»å†™çš„çº¿ç¨‹å®‰å…¨æ€§
 */
 class CacheProperty {
-	//TODO£ºÌí¼Ó¶ÁÐ´ËøÒÔ¼°¶ÁÐ´ËøÏà¹Ø²Ù×÷£¬×¢ÒâÒªÍ³Ò»±¯¹ÛËøºÍÀÖ¹ÛËø£¨¼´¼ÓÁËÒ»ÖÖËøÖ®ºó£¬½âËøÇ°²»ÄÜ¼ÓÁíÒ»ÖÖËø£©
+	//TODOï¼šæ·»åŠ è¯»å†™é”ä»¥åŠè¯»å†™é”ç›¸å…³æ“ä½œï¼Œæ³¨æ„è¦ç»Ÿä¸€æ‚²è§‚é”å’Œä¹è§‚é”ï¼ˆå³åŠ äº†ä¸€ç§é”ä¹‹åŽï¼Œè§£é”å‰ä¸èƒ½åŠ å¦ä¸€ç§é”ï¼‰
 
 public:
 
-	/***********±¯¹ÛËø***********/
-	/*£¨ref£ºmutex£¬http://www.cnblogs.com/haippy/p/3237213.html £©*/
-	//¶ÁËø¼ÓËø
+	/***********æ‚²è§‚é”***********/
+	/*ï¼ˆrefï¼šmutexï¼Œhttp://www.cnblogs.com/haippy/p/3237213.html ï¼‰*/
+	//è¯»é”åŠ é”
 	void rlock();
-	//¶ÁËø½âËø
+	//è¯»é”è§£é”
 	void runlock();
 
-	//Ð´Ëø¼ÓËø
+	//å†™é”åŠ é”
 	void wlock();
-	//Ð´Ëø½âËø
+	//å†™é”è§£é”
 	void wunlock();
 
 
-	/***************ÀÖ¹ÛËø****************/
-	/*£¨ref£ºCAS²Ù×÷¡¢http://blog.csdn.net/syzcch/article/details/8075830 £©*/
-	////¶ÁËø¼ÓËø
+	/***************ä¹è§‚é”****************/
+	/*ï¼ˆrefï¼šCASæ“ä½œã€http://blog.csdn.net/syzcch/article/details/8075830 ï¼‰*/
+	////è¯»é”åŠ é”
 	void atomic_rlock();
-	//¶ÁËø½âËø
+	//è¯»é”è§£é”
 	void atomic_runlock();
 
-	//Ð´Ëø¼ÓËø
+	//å†™é”åŠ é”
 	void atomic_wlock();
-	//Ð´Ëø½âËø
+	//å†™é”è§£é”
 	void atomic_wunlock();
 };
 
 
 /*
-	CacheContentÊÇCacheµÄÄÚÈÝ£¬·â×°ÁËÄÚÈÝ±äÁ¿TºÍÏà¹ØµÄËøÀ´±£Ö¤¶àÏß³Ì·ÃÎÊµÄ°²È«
-	Note£º
-		1.¿ÉÒÔÍ¨¹ýÌí¼Ó¹¹Ôìº¯Êý¡¢Ìí¼ÓsetModeº¯ÊýÉèÖÃËøµÄÀàÐÍ£¨±¯¹ÛËø¡¢ÀÖ¹ÛËø¡¢²»¼ÓËø£©£¬Ê¹ÓÃÄ¬ÈÏ²ÎÊý¿ÉÒÔ¼ò»¯º¯Êýµ÷ÓÃ
+	CacheContentæ˜¯Cacheçš„å†…å®¹ï¼Œå°è£…äº†å†…å®¹å˜é‡Tå’Œç›¸å…³çš„é”æ¥ä¿è¯å¤šçº¿ç¨‹è®¿é—®çš„å®‰å…¨
+	Noteï¼š
+		1.å¯ä»¥é€šè¿‡æ·»åŠ æž„é€ å‡½æ•°ã€æ·»åŠ setModeå‡½æ•°è®¾ç½®é”çš„ç±»åž‹ï¼ˆæ‚²è§‚é”ã€ä¹è§‚é”ã€ä¸åŠ é”ï¼‰ï¼Œä½¿ç”¨é»˜è®¤å‚æ•°å¯ä»¥ç®€åŒ–å‡½æ•°è°ƒç”¨
 */
 template<typename T>
 class CacheContent {
@@ -59,25 +59,25 @@ private:
 	CacheProperty cproperty;
 	T* content;
 public:
-	//Ö±½Ó½«Ö¸Õë×÷Îªcontent
+	//ç›´æŽ¥å°†æŒ‡é’ˆä½œä¸ºcontent
 	CacheContent(T*);
-	//¸´ÖÆÄÚÈÝ×÷Îªcontent
+	//å¤åˆ¶å†…å®¹ä½œä¸ºcontent
 	CacheContent(T&&);
 
-	//»ñÈ¡ÄÚÈÝ
+	//èŽ·å–å†…å®¹
 	T& getContent();
-	//ÐÞ¸ÄÄÚÈÝ
+	//ä¿®æ”¹å†…å®¹
 	void setContent(T*);
 	void setContent(T&&);
 
-	//TODO:Ìí¼ÓÆäËû³ÉÔ±
+	//TODO:æ·»åŠ å…¶ä»–æˆå‘˜
 };
 
 
 /*
-	CacheÊµÏÖÁËÏñmapÒ»Ñù¶ÔCacheÄÚÈÝ½øÐÐ²Ù×÷£¬²¢¶ÔcacheÄÚÈÝ½øÐÐ
-	´æÈ¡¡¢É¾¸Ä¡£Í¨¹ýÔÚ¹¹Ôìº¯ÊýÖÐÌí¼Ó²ÎÊý»òÕßÌí¼Ósetº¯Êý¿ÉÒÔÐÞ¸Ä
-	Cache Mode£¨±¯¹ÛËø¡¢ÀÖ¹ÛËø¡¢²»¼ÓËøµÈ£©
+	Cacheå®žçŽ°äº†åƒmapä¸€æ ·å¯¹Cacheå†…å®¹è¿›è¡Œæ“ä½œï¼Œå¹¶å¯¹cacheå†…å®¹è¿›è¡Œ
+	å­˜å–ã€åˆ æ”¹ã€‚é€šè¿‡åœ¨æž„é€ å‡½æ•°ä¸­æ·»åŠ å‚æ•°æˆ–è€…æ·»åŠ setå‡½æ•°å¯ä»¥ä¿®æ”¹
+	Cache Modeï¼ˆæ‚²è§‚é”ã€ä¹è§‚é”ã€ä¸åŠ é”ç­‰ï¼‰
 */
 template<typename K, typename T>
 class Cache {
@@ -85,46 +85,46 @@ private:
 	std::unordered_map<K, CacheContent<T>> content;
 
 public:
-	//Ê¹ÓÃ[]²Ù×÷·û·ÃÎÊcontent
+	//ä½¿ç”¨[]æ“ä½œç¬¦è®¿é—®content
 	T& operator[](K& key);
-	//ÒÔÖ¸ÕëÄÚÈÝ×÷Îªcontent
+	//ä»¥æŒ‡é’ˆå†…å®¹ä½œä¸ºcontent
 	void put(K&, T*);
-	//É¾³ýÄÚÈÝ
+	//åˆ é™¤å†…å®¹
 	void remove(K&);
 
-	//TODO:Ìí¼ÓÆäËû³ÉÔ±
+	//TODO:æ·»åŠ å…¶ä»–æˆå‘˜
 };
 
 
 
 /********************OPTIONAL*********************/
-//ModeµÄÉè¼Æ
+//Modeçš„è®¾è®¡
 
 /*
-	modeÒ»°ã¿ÉÒÔÓÃÁ½ÖÖ·½Ê½¶¨Òå£º
-		1.Ã¶¾ÙÀàÐÍ
+	modeä¸€èˆ¬å¯ä»¥ç”¨ä¸¤ç§æ–¹å¼å®šä¹‰ï¼š
+		1.æžšä¸¾ç±»åž‹
 			enum Mode { Mode1, Mode2, ....... }
 			enum Mode { Mode1 = xxx, Mode2 = xxx, .......}
-		2.ºê¶¨Òå
+		2.å®å®šä¹‰
 			#define Mode1 xxx
 			#define Mode2 xxx
 
-	¶àÎ¬¶ÈÄ£Ê½µÄ¶¨Òå¼¼ÇÉ£º
-		¼Ù¶¨ÎÒÃÇÒªÉè¼ÆÒ»¸ö´°ÌåµÄÄ£Ê½£¬ÐëÔÚÈý¸öÎ¬¶ÈÉÏ¶¨Òå--ÐÎ×´¡¢ÑÕÉ«¡¢±ß¿òÑùÊ½²»Í¬µÄÄ£Ê½£º
-			#define Èý½ÇÐÎ 0x1
-			#define Õý·½ÐÎ 0x2
-			#define ÁâÐÎ 0x3
+	å¤šç»´åº¦æ¨¡å¼çš„å®šä¹‰æŠ€å·§ï¼š
+		å‡å®šæˆ‘ä»¬è¦è®¾è®¡ä¸€ä¸ªçª—ä½“çš„æ¨¡å¼ï¼Œé¡»åœ¨ä¸‰ä¸ªç»´åº¦ä¸Šå®šä¹‰--å½¢çŠ¶ã€é¢œè‰²ã€è¾¹æ¡†æ ·å¼ä¸åŒçš„æ¨¡å¼ï¼š
+			#define ä¸‰è§’å½¢ 0x1
+			#define æ­£æ–¹å½¢ 0x2
+			#define è±å½¢ 0x3
 
-			#define ºìÉ« 0x4
-			#define ÂÌÉ« 0x8
-			#define »ÆÉ« 0xc
+			#define çº¢è‰² 0x4
+			#define ç»¿è‰² 0x8
+			#define é»„è‰² 0xc
 
-			#define Ï¸±ß 0x10
-			#define ´Ö±ß 0x20
+			#define ç»†è¾¹ 0x10
+			#define ç²—è¾¹ 0x20
 
-			ÄÇÃ´Ò»¸öÕý·½ÐÎºìÉ«´Ö±ßµÄ´°ÌåÄ£Ê½¾ÍÊÇ£º(Õý·½ÐÎ | ºìÉ« | ´Ö±ß) 
-			ÏÔÈ»£¬ÆäÊµÀûÓÃÁË²»Í¬Î¬¶ÈÊ¹ÓÃ²»Í¬Î»ÖÃµÄbitÀ´±íÊ¾¶àÎ¬¶ÈµÄÄ£Ê½
-			ÐÎ×´Ê¹ÓÃÁËÇ°2Î»£¬ÑÕÉ«Ê¹ÓÃÁË3~4Î»£¬±ß¿òÊ¹ÓÃÁË5~6Î»£¬ÕâÑùÊ¹ÓÃÄ£Ê½
-			¼ÈÖ±¹ÛÓÖ¼òµ¥¡£ÏàÓ¦µÄ£¬ÔÚÅÐ¶ÏÒ»¸ö´°ÌåÊÇ·ñÊÇºìÉ«Ê±¿ÉÒÔÊ¹ÓÃÒÔÏÂ·½·¨£º
-						£¨mode & ºìÉ« == ºìÉ«£©
+			é‚£ä¹ˆä¸€ä¸ªæ­£æ–¹å½¢çº¢è‰²ç²—è¾¹çš„çª—ä½“æ¨¡å¼å°±æ˜¯ï¼š(æ­£æ–¹å½¢ | çº¢è‰² | ç²—è¾¹) 
+			æ˜¾ç„¶ï¼Œå…¶å®žåˆ©ç”¨äº†ä¸åŒç»´åº¦ä½¿ç”¨ä¸åŒä½ç½®çš„bitæ¥è¡¨ç¤ºå¤šç»´åº¦çš„æ¨¡å¼
+			å½¢çŠ¶ä½¿ç”¨äº†å‰2ä½ï¼Œé¢œè‰²ä½¿ç”¨äº†3~4ä½ï¼Œè¾¹æ¡†ä½¿ç”¨äº†5~6ä½ï¼Œè¿™æ ·ä½¿ç”¨æ¨¡å¼
+			æ—¢ç›´è§‚åˆç®€å•ã€‚ç›¸åº”çš„ï¼Œåœ¨åˆ¤æ–­ä¸€ä¸ªçª—ä½“æ˜¯å¦æ˜¯çº¢è‰²æ—¶å¯ä»¥ä½¿ç”¨ä»¥ä¸‹æ–¹æ³•ï¼š
+						ï¼ˆmode & çº¢è‰² == çº¢è‰²ï¼‰
 */

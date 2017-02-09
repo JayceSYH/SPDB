@@ -2,9 +2,9 @@
 A learning by doing database project for C++ beginners.
 
 ####Project Structure
->  Common---|--Cache.h　　　　　　　　
+>  Common---|--Cache.h  
 >　　|　　　|  
->　　|　　　|--DataFrame.h　　　　
+>　　|　　　|--DataFrame.h  
 >　　|　　　|  
 >　　|　　　|--Mess.h  
 >　　|　　　|    
@@ -13,7 +13,7 @@ A learning by doing database project for C++ beginners.
 >　　|　　　|--Exception.h  
 >　　|  
 >　　|  
->BaseLayer----|--DataType.h　　　　　
+>BaseLayer----|--DataType.h  
 >　　|　　　　|  
 >　　|　　　　|--DBFileSystem.h　　
 >　　|　　　　|  

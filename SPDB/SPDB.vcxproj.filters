@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\OuterLayer">
+      <UniqueIdentifier>{6b86e858-6b8f-4728-b66c-0244fd1644ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\BaseLayer">
+      <UniqueIdentifier>{6f4e6369-42f2-4372-9c7b-99cfd70c077f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\MiddleLayer">
+      <UniqueIdentifier>{fb314b50-d1cf-4649-8c71-65714db98909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Common">
+      <UniqueIdentifier>{ec374fbd-ead5-49f9-a7b4-acc2930e852d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Test">
+      <UniqueIdentifier>{630f17e0-c386-41a3-a1e9-023438a66fed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Test">
+      <UniqueIdentifier>{17d07f64-d5a0-4099-b7f2-7c744fc5fd13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DBFileSystem.h">
+      <Filter>头文件\BaseLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFrame.h">
+      <Filter>头文件\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="DBModel.h">
+      <Filter>头文件\BaseLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="DataType.h">
+      <Filter>头文件\BaseLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Mess.h">
+      <Filter>头文件\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="FileStructs.h">
+      <Filter>头文件\BaseLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>头文件\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TableManager.h">
+      <Filter>头文件\MiddleLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerManager.h">
+      <Filter>头文件\MiddleLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLOperation.h">
+      <Filter>头文件\MiddleLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Cache.h">
+      <Filter>头文件\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>头文件\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLParser.h">
+      <Filter>头文件\OuterLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandLine.h">
+      <Filter>头文件\OuterLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection.h">
+      <Filter>头文件\OuterLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcurrentQueue.h">
+      <Filter>头文件\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main_test.cpp">
+      <Filter>源文件\Test</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

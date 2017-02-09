@@ -9,7 +9,7 @@
 >　　|　　　|  
 >　　|　　　|--DataFrame　　　　　　---The implementation of a DataFrame similar to 'pandas.DataFrame' in python  
 >　　|　　　|  
->　　|　　　|--Bytes　　　　　　　　　---The implementation of Bytes stream. 
+>　　|　　　|--Bytes　　　　　　　　　---The implementation of Bytes stream.  
 >　　|  
 >  BaseLayer---|--DataType　　　　　　---The implementation of Database field types  
 >　　　　　　|  

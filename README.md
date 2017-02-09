@@ -15,9 +15,9 @@ A learning by doing database project for C++ beginners.
 >　　|  
 >BaseLayer----|--DataType.h  
 >　　|　　　　|  
->　　|　　　　|--DBFileSystem.h　　
+>　　|　　　　|--DBFileSystem.h  
 >　　|　　　　|  
->　　|　　　　|--DBModel.h　　　　
+>　　|　　　　|--DBModel.h  
 >　　|　　　　|  
 >　　|　　　　|--FileStructs.h  
 >　　|　　　　 
@@ -33,7 +33,7 @@ A learning by doing database project for C++ beginners.
 >　　　　　　|  
 >　　　　　　|--Connection.h  
 >　　　　　　|  
->　　　　　　|--SQLParse.h    
+>　　　　　　|--SQLParse.h  
 
 ####Tips
 To get started, please read docs under introduction folder.

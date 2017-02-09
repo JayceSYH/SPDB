@@ -4,9 +4,9 @@ In **stage 1**, you will implement the file structure of a database file and it'
 
 You will complete the following files in this stage:  
 
->  Common ---|--Cache                         ---The implementation of a simple cache  
+>  Common ---|--Cache　　　　　　   ---The implementation of a simple cache  
 >  　　|　　　|  
->  　　|　　　|--DataFrame		      ---The implementation is similar to 'pandas.DataFrame' in Python  
+>  　　|　　　|--DataFrame　　　　　　   ---The implementation is similar to 'pandas.DataFrame' in Python  
 >  　　|　　　|  
 >  　　|　　　|--Bytes　　　　　　   ---The implementation of Bytes stream.  
 >  　　|  

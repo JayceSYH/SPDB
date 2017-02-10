@@ -48,11 +48,11 @@ PAGE2									PAGE_SIZE												  |
 
 /************索引结构****************
 
-                             ____  TableDescriptor                     _______  FieldDescriptor            _______ FieldContent
-						   /														 /													   /
+                 ____  TableDescriptor            _______  FieldDescriptor      _______ FieldContent
+               /                                /                             /
     Schema____/______ TableDescriptor   _______/_________ FieldDescriptor____/_____ FieldContent
-						 \														   \													 \
-                           \ ......	                                                 \ ......                                              \ ......
+              \                                \                             \
+               \ ......                         \ ......                      \ ......
 */
 
 

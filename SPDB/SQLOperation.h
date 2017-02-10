@@ -31,12 +31,12 @@ public:
     //Table 级操作
     //从一个DataFrame创建一个新表
     Table* Create(DataFrame&);
-    //从一个Index创建一个新的空表
-    Table* Create(Index&);
+    //从一个DBIndex创建一个新的空表
+    Table* Create(DBIndex&);
     //丢弃目标表,返回值为是否成功
     bool Drop(Table&);
-    //以Index的信息为准对Table进行修改
-    Table& Alert(Table&, Index&);
+    //以DBIndex的信息为准对Table进行修改
+    Table& Alert(Table&, DBIndex&);
     //以onCondition为关键字对两个表进行join操作，默认为innerjoin
     DataFrame* Join(Table&, Table&, std::vector<std::string> onCondition, JoinMode mode=InnerJoin);
 };

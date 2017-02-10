@@ -1,6 +1,7 @@
 #pragma once
 
-#include<stdint.h>
+//#include<stdint.h>
+#include <cstdint>
 
 #define LEVEL1_INDEX_NUM 10         //多级索引中的一级索引数量
 #define PAGE_SIZE (4 * 1024)        //页大小
@@ -59,11 +60,11 @@ PAGE2                                   PAGE_SIZE                             |
 //数据库头
 struct Schema
 {
-    uint32_t magic;                     //魔数
-    uint32_t table_num;                 //表数目
-    uint32_t fep_offset;                //first empty page 第一个未分配页
-    uint32_t tdt_offset;                //table descriptor table 表描述符表起始地址偏移
-    uint32_t fdt_offset;                //field descriptor table 字段描述符表起始地址偏移
+    std::uint32_t magic;                     //魔数
+    std::uint32_t table_num;                 //表数目
+    std::uint32_t fep_offset;                //first empty page 第一个未分配页
+    std::uint32_t tdt_offset;                //table descriptor table 表描述符表起始地址偏移
+    std::uint32_t fdt_offset;                //field descriptor table 字段描述符表起始地址偏移
 };
 /*
 Note:
@@ -76,11 +77,11 @@ Note:
 //页结构
 struct Page
 {
-    uint32_t offset;        //页起始地址
+    std::uint32_t offset;        //页起始地址
     union {
-        uint8_t _8[PAGE_SIZE];
-        uint16_t _16[PAGE_SIZE / 2];
-        uint32_t _32[PAGE_SIZE / 4];
+        std::uint8_t _8[PAGE_SIZE];
+        std::uint16_t _16[PAGE_SIZE / 2];
+        std::uint32_t _32[PAGE_SIZE / 4];
     } content;             //页内容
 };
 /*
@@ -88,14 +89,14 @@ Note:
     1.PAGE_SIZE默认为4kb
     2.使用union定义页内容是为了能以三种不同的方式读取数据（单字节、双字节、四字节）
 */
-  
+
 
 //多级索引
 struct MultilevelIndex
 {
-    uint32_t level1[LEVEL1_INDEX_NUM];          //一级索引
-    uint32_t level2;                            //二级索引
-    uint32_t level3;                            //三级索引
+    std::uint32_t level1[LEVEL1_INDEX_NUM];          //一级索引
+    std::uint32_t level2;                            //二级索引
+    std::uint32_t level3;                            //三级索引
 };
 /*
 Note:
@@ -106,7 +107,7 @@ Note:
 struct TableDescriptor
 {
     char table_name[64];                        //表名
-    uint32_t field_num;                         //字段数
+    std::uint32_t field_num;                         //字段数
     MultilevelIndex mli;                        //字段描述符多级索引
 };
 
@@ -114,9 +115,9 @@ struct TableDescriptor
 struct FieldDescriptor
 {
     char field_name[64];                        //字段名
-    uint16_t width;                             //字段宽度
-    uint16_t type;                              //字段类型
-    uint32_t row_num;                           //字段行数
+    std::uint16_t width;                             //字段宽度
+    std::uint16_t type;                              //字段类型
+    std::uint32_t row_num;                           //字段行数
     MultilevelIndex mli;                        //字段内容多级索引
 };
 

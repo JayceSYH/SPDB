@@ -2,10 +2,10 @@
 
 #include<stdint.h>
 
-#define LEVEL1_INDEX_NUM 10			//多级索引中的一级索引数量
-#define PAGE_SIZE (4 * 1024)					//页大小
-#define MAX_TD_NUM 1024					//表描述符最大数量
-#define SCHEMA_SIZE 1024					//Schema字节数
+#define LEVEL1_INDEX_NUM 10	        //多级索引中的一级索引数量
+#define PAGE_SIZE (4 * 1024)        //页大小
+#define MAX_TD_NUM 1024             //表描述符最大数量
+#define SCHEMA_SIZE 1024            //Schema字节数
 #define FIRST_PAGE_OFFSET   (SCHEMA_SIZE + MAX_TD_NUM * sizeof(TableDescriptor))	//第一个页的起始地址
 
 /*
@@ -59,29 +59,29 @@ PAGE2                                   PAGE_SIZE                             |
 //数据库头
 struct Schema
 {
-	uint32_t magic;						//魔数
-	uint32_t table_num;					//表数目
-	uint32_t fep_offset;			    //first empty page 第一个未分配页
-	uint32_t tdt_offset;			    //table descriptor table 表描述符表起始地址偏移
-	uint32_t fdt_offset;				//field descriptor table 字段描述符表起始地址偏移
+	uint32_t magic;                     //魔数
+	uint32_t table_num;                 //表数目
+	uint32_t fep_offset;                //first empty page 第一个未分配页
+	uint32_t tdt_offset;                //table descriptor table 表描述符表起始地址偏移
+	uint32_t fdt_offset;                //field descriptor table 字段描述符表起始地址偏移
 };
 /*
 Note:
-	1.魔数是很多特定类型文件都有的4字节identifier，用来判断是否是某种类型的文件
-	2.未分配页偏移（fep）在没有未分配页时为0，有未分配页时指向第一个未分配页，每个未分配页的前4个字节为下一个为分配页的起始地址，若没有下一页则为0
-	3.表描述符表、字段描述符表里放的分别是表描述符和字段描述符
+    1.魔数是很多特定类型文件都有的4字节identifier，用来判断是否是某种类型的文件
+    2.未分配页偏移（fep）在没有未分配页时为0，有未分配页时指向第一个未分配页，每个未分配页的前4个字节为下一个为分配页的起始地址，若没有下一页则为0
+    3.表描述符表、字段描述符表里放的分别是表描述符和字段描述符
 */
 
 
 //页结构
 struct Page
 {
-	uint32_t offset;		//页起始地址
+	uint32_t offset;        //页起始地址
 	union {
 		uint8_t _8[PAGE_SIZE];
 		uint16_t _16[PAGE_SIZE / 2];
 		uint32_t _32[PAGE_SIZE / 4];
-	} content;				//页内容
+	} content;             //页内容
 };
 /*
 Note:
@@ -93,9 +93,9 @@ Note:
 //多级索引
 struct MultilevelIndex
 {
-	uint32_t level1[LEVEL1_INDEX_NUM];			//一级索引
-	uint32_t level2;							//二级索引
-	uint32_t level3;							//三级索引
+	uint32_t level1[LEVEL1_INDEX_NUM];          //一级索引
+	uint32_t level2;                            //二级索引
+	uint32_t level3;                            //三级索引
 };
 /*
 Note:
@@ -105,18 +105,18 @@ Note:
 //表描述符
 struct TableDescriptor
 {
-	char table_name[64];						//表名
-	uint32_t field_num;							//字段数
-	MultilevelIndex mli;						//字段描述符多级索引
+	char table_name[64];                        //表名
+	uint32_t field_num;                         //字段数
+	MultilevelIndex mli;                        //字段描述符多级索引
 };
 
 //字段描述符
 struct FieldDescriptor
 {
-	char field_name[64];						//字段名
-	uint16_t width;								//字段宽度
-	uint16_t type;								//字段类型
-	uint32_t row_num;							//字段行数
-	MultilevelIndex mli;						//字段内容多级索引
+	char field_name[64];                        //字段名
+	uint16_t width;                             //字段宽度
+	uint16_t type;                              //字段类型
+	uint32_t row_num;                           //字段行数
+	MultilevelIndex mli;                        //字段内容多级索引
 };
 

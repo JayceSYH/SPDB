@@ -5,7 +5,7 @@
 
 
 /********数据库文件格式*************
-名称										大小
+名称                                      大小
 
 ------------------------------------------------------------------------------|
 Schema                                 1024Byte                               |
@@ -27,7 +27,7 @@ PAGE2                                   PAGE_SIZE                             |
 
 
 /*
-	完成下面数据库文件系统的实现：
+    完成下面数据库文件系统的实现：
         1.构造函数、析构函数的实现，writeBaseInfo函数的实现
         2.物理操作的实现，并基于Cache实现对页的缓存
         3.基于物理操作的表级操作的实现
@@ -69,7 +69,7 @@ public:
     */
     //获取一个空页，若文件系统里没有空闲页，则增加文件长度以获取新页
     Page* getNewPage();
-	
+    
     //将一个页写入文件
     void writePage(Page&);
     //将所有页写回文件
@@ -83,24 +83,24 @@ public:
 
 
     /*
-		表级操作
-	*/
-	std::vector<Table*> loadTables();
-	//在数据库文件中创建该表
-	void createTable(Table&);
-	//在数据库文件中删除该表
-	void deleteTable(Table&);
-	//为了简单起见，alertTable只实现列的增、删操作，按照index的内容修改Table
-	void alterTable(Table& origin, Index& index);
+        表级操作
+    */
+    std::vector<Table*> loadTables();
+    //在数据库文件中创建该表
+    void createTable(Table&);
+    //在数据库文件中删除该表
+    void deleteTable(Table&);
+    //为了简单起见，alertTable只实现列的增、删操作，按照index的内容修改Table
+    void alterTable(Table& origin, Index& index);
 
 
-	/*
-		Entry（记录）级操作
-	*/
-	void insertEntry(Table&, Entry&);
-	void deleteEntry(Table&, Entry&);
-	void updateEntry(Table&, Entry&);
-	void insertOrUpdateEntry(Table&, Entry&);
+    /*
+        Entry（记录）级操作
+    */
+    void insertEntry(Table&, Entry&);
+    void deleteEntry(Table&, Entry&);
+    void updateEntry(Table&, Entry&);
+    void insertOrUpdateEntry(Table&, Entry&);
 
-	//TODO：添加成员函数
+    //TODO：添加成员函数
 };

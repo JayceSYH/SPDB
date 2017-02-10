@@ -29,18 +29,18 @@
 名称										大小
 
 ------------------------------------------------------------------------------|
-Schema									1024Byte														  |
+Schema									1024Byte                              |
 ------------------------------------------------------------------------------|
-数据库表描述符表			MAX_TD_NUM * sizeof(TableDescriptor)	  |
-										  默认表数量最大值(MAX_TD_NUM)为1024  |
+数据库表描述符表			    MAX_TD_NUM * sizeof(TableDescriptor)	          |
+							默认表数量最大值(MAX_TD_NUM)为1024                  |
 ------------------------------------------------------------------------------|
-PAGE1									PAGE_SIZE(4kb)										  |
+PAGE1									PAGE_SIZE(4kb)					      |
 ------------------------------------------------------------------------------|
-PAGE2									PAGE_SIZE												  |
+PAGE2									PAGE_SIZE							  |
 ------------------------------------------------------------------------------|
-PAGE2									PAGE_SIZE												  |
+PAGE2									PAGE_SIZE							  |
 ------------------------------------------------------------------------------|
-......																												  |
+......																		  |
 ------------------------------------------------------------------------------|
 
 */
@@ -48,22 +48,22 @@ PAGE2									PAGE_SIZE												  |
 
 /************索引结构****************
 
-                 ____  TableDescriptor            _______  FieldDescriptor      _______ FieldContent
-               /                                /                             /
-    Schema____/______ TableDescriptor   _______/_________ FieldDescriptor____/_____ FieldContent
-              \                                \                             \
-               \ ......                         \ ......                      \ ......
+                ____ TableDescriptor           _______  FieldDescriptor      _______ FieldContent
+               /                              /                             /
+    Schema____/______ TableDescriptor _______/_________ FieldDescriptor____/_____ FieldContent
+              \                              \                             \
+               \ ......                       \ ......                      \ ......
 */
 
 
 //数据库头
 struct Schema
 {
-	uint32_t magic;								//魔数
-	uint32_t table_num;						//表数目
-	uint32_t fep_offset;						//first empty page 第一个未分配页
-	uint32_t tdt_offset;						//table descriptor table 表描述符表起始地址偏移
-	uint32_t fdt_offset;						//field descriptor table 字段描述符表起始地址偏移
+	uint32_t magic;						//魔数
+	uint32_t table_num;					//表数目
+	uint32_t fep_offset;			    //first empty page 第一个未分配页
+	uint32_t tdt_offset;			    //table descriptor table 表描述符表起始地址偏移
+	uint32_t fdt_offset;				//field descriptor table 字段描述符表起始地址偏移
 };
 /*
 Note:
@@ -94,8 +94,8 @@ Note:
 struct MultilevelIndex
 {
 	uint32_t level1[LEVEL1_INDEX_NUM];			//一级索引
-	uint32_t level2;														//二级索引
-	uint32_t level3;														//三级索引
+	uint32_t level2;							//二级索引
+	uint32_t level3;							//三级索引
 };
 /*
 Note:
@@ -105,18 +105,18 @@ Note:
 //表描述符
 struct TableDescriptor
 {
-	char table_name[64];							//表名
+	char table_name[64];						//表名
 	uint32_t field_num;							//字段数
-	MultilevelIndex mli;							//字段描述符多级索引
+	MultilevelIndex mli;						//字段描述符多级索引
 };
 
 //字段描述符
 struct FieldDescriptor
 {
-	char field_name[64];							//字段名
-	uint16_t width;									//字段宽度
-	uint16_t type;										//字段类型
+	char field_name[64];						//字段名
+	uint16_t width;								//字段宽度
+	uint16_t type;								//字段类型
 	uint32_t row_num;							//字段行数
-	MultilevelIndex mli;							//字段内容多级索引
+	MultilevelIndex mli;						//字段内容多级索引
 };
 

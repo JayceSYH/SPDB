@@ -3,11 +3,11 @@
 /*****************字节流***************/
 class Bytes {
 private:
-	size_t len;
-	char *content;
+    size_t len;
+    char *content;
 public:
-	//释放字节空间
-	void free();
+    //释放字节空间
+    void free();
 
-	//TODO:添加成员函数
+    //TODO:添加成员函数
 };

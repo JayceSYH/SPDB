@@ -88,7 +88,13 @@ public:
 	//获取子数据帧
 	DataFrame operator[](std::string names[]);
 	DataFrame operator[](int rows[]);
-	DataFrame operator[](std::pair<int, int> slice_range);
+    DataFrame operator[](std::pair<int, int> slice_range);
+
+    //获取深拷贝的子数据帧
+    DataFrame copy(std::string names[]);
+    DataFrame copy(int rows[]);
+    DataFrame copy(std::pair<int, int>);
+    DataFrame copy(std::pair<int, int>, std::string names[]);
 
 	//删除列
 	DataFrame drop(std::string[]);

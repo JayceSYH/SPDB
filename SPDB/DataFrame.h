@@ -3,8 +3,8 @@
 #include <vector>
 #include "DataType.h"
 #include <string>
-#include<vector>
-#include<unordered_map>
+#include <vector>
+#include <unordered_map>
 
 /*
     DataFrame实现了对带有索引的矩阵的基本操作，是DBTable的矩阵部分功能的抽象
@@ -21,9 +21,9 @@
 
 /***********DataFrame索引********/
 //包含了列名、列数据类型等信息
-class Index {
+class DBIndex {
 private:
-    std::vector<std::string> indices;
+    std::vector<std::string> indices_;
     //TODO：添加成员
 public:
     //TODO:添加成员
@@ -33,7 +33,7 @@ public:
 /**********数据行*************/
 class DataRow {
 private:
-    Index index;
+    DBIndex index_;
     //TODO:添加成员变量
 public:
     DBData& operator[](std::string col);
@@ -44,8 +44,8 @@ public:
 /*********数据列************/
 class DataColumn {
 private:
-    std::string name;
-    std::vector<DBData*> data;
+    std::string name_;
+    std::vector<DBData*> data_;
 
 public:
     DataColumn(std::string name, std::vector<DBData> data);
@@ -60,7 +60,7 @@ public:
 class DataFrame {
 private:
     //索引
-    Index index;
+    DBIndex index;
 
     //数据列
     std::unordered_map<std::string, DataColumn> columns;
@@ -76,8 +76,8 @@ public:
     //TODO:添加成员函数
 
     //设置索引
-    void setIndex(Index& index);
-    Index& getIndex();
+    void setIndex(DBIndex& index);
+    DBIndex& getIndex();
 
     //获取列(可以用来添加列)
     DataColumn& operator[](std::string name);
@@ -101,7 +101,7 @@ public:
 
     /**************OPTIONAL***********/
     /*
-        实现对key的迭代 
+        实现对key的迭代
         eg 对每列第一个值加一：
             for (auto key : df)
                 df[key][0]++;

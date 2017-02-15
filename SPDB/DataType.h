@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Mess.h"
-#include<vector>
+#include <vector>
 
 
 /*
@@ -12,12 +12,12 @@
 class DBData {
 public:
     //Data Type
-    enum DBDataType { DB_INTEGER, DB_DOUBLE, DB_CHAR, DB_DATETIME /*, DB_DECIMAL*/ };
+    enum DBDataType { DB_INTEGER, DB_DOUBLE, DB_CHAR, DB_DATETIME, DB_BOOL /*, DB_DECIMAL*/ };
 
     //从Bytes类创建DBData类型变量
     static DBData* createFromBytes(Bytes, DBDataType);
     static std::vector<DBData*> createFromBytesList(std::vector<Bytes>&, DBDataType);
-    
+
 public:
     //Constructor
     DBData(Bytes) {};
@@ -65,6 +65,10 @@ class DBChar : public DBData {
 
 //日期类型 yyyy-mm-dd hh:MM:ss
 class DBDateTime : public DBData {
+
+};
+
+class DBBool : public DBData {
 
 };
 

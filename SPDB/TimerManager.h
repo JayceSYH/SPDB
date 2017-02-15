@@ -26,8 +26,33 @@ public:
 
 
 class TimerManager {
+private:
+    static TaskQueue taskQueue;
 public:
     //延迟milisecond毫秒之后调用func函数
     static void delay(std::function<void(void)> func, time_t milisecond);           //通过lambda表达式实现复杂的回调函数
 };
 
+
+//注意该类需持有一个线程锁来保证个线程在同时添加任务时不会出现错误
+class TaskQueue {
+private:
+    /*
+        处理所有处理时间小于等于该时刻的函数，注意每次执行完一个函数之后都
+        要进行时间判断
+    */
+    void callFuncs();
+
+    //TODO:添加成员
+    //Tips:一个用来存储任务的容器，便于添加任务；一个线程锁用来保证线程安全
+public:
+    //在绝对时刻time之后调用func(想想为什么是之后)
+    void newTask(std::function<void(void)> func, time_t time);
+
+    //TODO:添加成员
+};
+/*
+    Note:思考一下，假如有1000个任务，每个任务之间的时间间隔都很小（假设为1ms），
+    如果每次执行完一个任务都要挂起等待下一次执行，那么为了执行这些人物可能会进行
+    大量的线程切换，怎么设计TaskQueue才能使得这一系列的任务执行效率得到提高？
+*/

@@ -27,6 +27,8 @@ public:
     DataFrame& Insert(DataFrame&, DataRow&);
     //从DataFrame中去除被筛选函数选中的行组成一个新的DataFrame
     DataFrame& Delete(DataFrame&, std::function<bool(DataRow&)>);
+    //通过更新函数按行更新表
+    DataFrame* Update(DataFrame&, std::function<void(DataRow&)>);
 
     //Table 级操作
     //从一个DataFrame创建一个新表

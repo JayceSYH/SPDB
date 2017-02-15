@@ -30,12 +30,20 @@ PAGE2                                   PAGE_SIZE                             |
     完成下面数据库文件系统的实现：
         1.构造函数、析构函数的实现，writeBaseInfo函数的实现
         2.物理操作的实现，并基于Cache实现对页的缓存
-        3.基于物理操作的表级操作的实现
-        4.基于表级操作和页级操作实现Entry级物理操作
+        3.基于缓存页的表级操作的实现
+        4.基于表级操作和页级操作实现Entry级操作
 
-        Note:数据库的操作的都是并发的，本实验中DBFileSystem采用锁页的形
-        式实现并发控制，即对一页进行操作时会对页加上读锁或者写锁
-        （ref：http://blog.csdn.net/feixiaoxing/article/details/7024677）
+        Note:
+            1.数据库的操作的都是并发的，本实验中DBFileSystem采用锁页的形
+            式实现并发控制，即对一页进行操作时会对页加上读锁或者写锁
+            （ref：http://blog.csdn.net/feixiaoxing/article/details/7024677）
+            2.DBFileSystem中针对表和条目的操作都是基于缓存页的，也就是说这些
+            操作不会直接写到文件中，而是写到缓存页中，而文件写入是同一从缓存页
+            写入到文件中（即调用writePage、writeAllPage）
+
+        DBFileSystem中的操作都是针对页的，区别于TableManager的操作针对于表。
+        这种不同级别的操作体现了top-down架构的特点，即高层操作调用底层操作，
+        高层操作在底层操作上进行封装和扩展（比如基于页的操作可以添加日志的操作）
 */
 
 
@@ -86,9 +94,9 @@ public:
         表级操作
     */
     std::vector<Table*> loadTables();
-    //在数据库文件中创建该表
+    //在数据库中创建该表，并写入到缓存页中
     void createTable(Table&);
-    //在数据库文件中删除该表
+    //在数据库文件中删除该表，并释放相应空间
     void deleteTable(Table&);
     //为了简单起见，alertTable只实现列的增、删操作，按照index的内容修改Table
     void alterTable(Table& origin, Index& index);
